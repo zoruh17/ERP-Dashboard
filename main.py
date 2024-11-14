@@ -15,15 +15,23 @@ def Faturado():
     df_faturado = pd.read_excel("faturado.xlsx")
 
     df_faturado['Data'] = df_faturado['Data'].dt.strftime('%d/%m/%Y')
-
+    print(df_faturado.dtypes)
     return df_faturado
 
 df_faturado = Faturado()
 
+faturado = float(df_faturado['Faturado'].iloc[0])
 fig_faturado = go.Figure(go.Indicator(
     mode = "gauge+number",
-    value = 'Faturado',
+    value = faturado,
     domain = {'x': [0,1], 'y': [0,1]},
     title = {'text': "Faturado"}))
-
 fig_faturado.show()
+
+devolucao = float(df_faturado['Devolução'].iloc[0])
+fig_devolucao = go.Figure(go.Indicator(
+    mode = "gauge+number",
+    value = devolucao,
+    domain = {'x': [0,1], 'y': [0,1]},
+    title = {'text': "Devolução"}))
+fig_devolucao.show()
