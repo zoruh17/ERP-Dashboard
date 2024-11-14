@@ -36,3 +36,11 @@ with st.container(border=True):
         domain = {'x': [0,1], 'y': [0,1]},
         title = {'text': "Devolução"}))
     st.plotly_chart(fig_devolucao)
+    
+    total = float(df_faturado['Faturado - Devolução'].iloc[0])
+    fig_total = go.Figure(go.Indicator(
+        mode = "gauge+number",
+        value = total,
+        domain = {'x': [0,1], 'y': [0,1]},
+        title = {'text': "Total"}))
+    st.plotly_chart(fig_total)
