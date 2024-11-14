@@ -27,7 +27,7 @@ with st.container(border=True):
         value = faturado,
         domain = {'x': [0,1], 'y': [0,1]},
         title = {'text': "Faturado"}))
-    fig_faturado.show()
+    st.plotly_chart(fig_faturado)
 
     devolucao = float(df_faturado['Devolução'].iloc[0])
     fig_devolucao = go.Figure(go.Indicator(
@@ -35,4 +35,4 @@ with st.container(border=True):
         value = devolucao,
         domain = {'x': [0,1], 'y': [0,1]},
         title = {'text': "Devolução"}))
-    fig_devolucao.show()
+    st.plotly_chart(fig_devolucao)
