@@ -20,7 +20,7 @@ def Faturado():
 
 df_faturado = Faturado()
 
-with st.container(border=True)
+with st.container(border=True):
     faturado = float(df_faturado['Faturado'].iloc[0])
     fig_faturado = go.Figure(go.Indicator(
         mode = "gauge+number",
